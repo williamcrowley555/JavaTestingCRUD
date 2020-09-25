@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="" method="post">
+		<form action="LoginController" method="post">
 			<div class="card">
 				<div class="card-header">
 					Login
