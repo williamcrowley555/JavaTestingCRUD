@@ -4,15 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<title>Employee List</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.css"/>
+	<title>Employee List</title>
 </head>
 <body>
 	<div class="container">
 	<p>${message}</p>
 	<button class="btn btn-primary" onclick="window.location.href='views/employee-add.jsp'">Add Employee</button>
-		<table class="table table-striped table-bordered">
+		<table class="table table-striped table-bordered" id="datatable">
 			<thead class="thead-dark">
 				<tr>
 					<th>Name</th>
@@ -36,5 +37,13 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#datatable").DataTable();
+		});
+	</script>
 </body>
 </html>

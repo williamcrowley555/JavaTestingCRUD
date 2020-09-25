@@ -9,13 +9,25 @@
 </head>
 <body>
 	<div class="container">
-		<form action="${pageContext.request.contextPath}/EmployeeController" method="post">
-			Enter name: <input type="text" name="fullName" value="${employee.name}"><br/>
-			Enter date of birth: <input type="date" name="dob" value="${employee.dob}"><br/>
-			Enter department: <input type="text" name="department" value="${employee.department}"><br/>
-			<input type="hidden" name="id" value="${employee.id}"/>
-			<button type="submit" class="btn btn-primary">Save</button>
-		</form>
+		<h1>Employee Directory</h1>
+		<hr/>
+		<div class="row">
+			<div class="col-md-4">
+				<form action="${pageContext.request.contextPath}/EmployeeController" method="post">
+					<div class="form-group">
+						<input type="text" name="fullName" value="${employee.name}" placeholder="Enter Name" class="form-control"><br/>
+					</div>
+					<div class="form-group">
+						<input type="date" name="dob" value="${employee.dob}" placeholder="Enter Date of Birth" class="form-control"><br/>
+					</div>
+					<div class="form-group">
+						<input type="text" name="department" value="${employee.department}" placeholder="Enter Name" class="form-control"><br/>
+					</div>
+					<input type="hidden" name="id" value="${employee.id}"/>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
