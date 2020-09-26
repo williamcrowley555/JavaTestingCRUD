@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.william.dao.LoginDAO;
 import com.william.dao.LoginDAOImpl;
@@ -28,9 +29,11 @@ public class LoginController extends HttpServlet {
 		Login login = new Login();
 		login.setEmail(request.getParameter("email"));
 		login.setPassword(request.getParameter("password"));
-		System.out.println(login.getEmail() + " " + login.getPassword());
+
 		String status = loginDAO.authenticate(login);
 		if(status.equals("true")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("email", login.getEmail());
 			response.sendRedirect("EmployeeController?action=LIST");
 		}
 		else if(status.equals("false")) {

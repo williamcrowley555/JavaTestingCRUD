@@ -12,6 +12,24 @@
 					Login
 				</div>
 				<div class="card-body">
+					<%
+						String email = (String) session.getAttribute("email");
+						if(email != null) {
+							response.sendRedirect("EmployeeController?action=LIST");
+						}
+					
+						String status = request.getParameter("status");
+						if(status != null) {
+							String message = null;
+							if(status.equals("false")) {
+								message = "Login Failed!";
+							}
+							else if(status.equals("error")) {
+								message = "An authentication exception occurred!";
+							}
+							out.println("<p class='text-danger'>" +  message + "</p>");
+						}
+					%>
 					<div class="form-group">
 						<input type="text" name="email" placeholder="Enter Email" class="form-control"><br/>
 					</div>

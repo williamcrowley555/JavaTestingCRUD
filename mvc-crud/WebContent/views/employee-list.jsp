@@ -10,7 +10,16 @@
 	<title>Employee List</title>
 </head>
 <body>
+	<%
+		String email = (String) session.getAttribute("email");
+		if(email == null) {
+			response.sendRedirect("index.jsp");
+		}
+	%>
 	<div class="container">
+		<div class="float-right">
+			<a href="${pageContext.request.contextPath}/logout.jsp">Logout</a>
+		</div>
 	<p>${message}</p>
 	<button class="btn btn-primary" onclick="window.location.href='views/employee-add.jsp'">Add Employee</button>
 		<table class="table table-striped table-bordered" id="datatable">
@@ -30,7 +39,7 @@
 						<td>${employee.dob}</td>
 						<td>
 							<a href="${pageContext.request.contextPath}/EmployeeController?action=EDIT&id=${employee.id}">Edit</a> | 
-							<a href="${pageContext.request.contextPath}/EmployeeController?action=DELETE&id=${employee.id}">Delete</a>
+							<a href="${pageContext.request.contextPath}/EmployeeController?action=DELETE&id=${employee.id}" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

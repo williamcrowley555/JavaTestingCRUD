@@ -8,7 +8,16 @@
 <title>Edit Employee</title>
 </head>
 <body>
+	<%
+		String email = (String) session.getAttribute("email");
+		if(email == null) {
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
+		}
+	%>
 	<div class="container">
+		<div class="float-right">
+			<a href="${pageContext.request.contextPath}/logout.jsp">Logout</a>
+		</div>
 		<h1>Employee Directory</h1>
 		<hr/>
 		<div class="row">
